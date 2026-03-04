@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en-us"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Search - EMToast</title><meta name="robots" content="noindex, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://emtoast.github.io/feed.xml" title="EMToast - RSS"><link rel="alternate" type="application/json" href="https://emtoast.github.io/feed.json" title="EMToast - JSON"><meta property="og:title" content="EMToast"><meta property="og:image" content="https://emtoast.github.io/media/website/EMToast-Logo-RESIZE-2.png"><meta property="og:image:width" content="512"><meta property="og:image:height" content="512"><meta property="og:site_name" content="EMToast"><meta property="og:description" content=""><meta property="og:url" content="https://emtoast.github.io/"><meta property="og:type" content="website"><link rel="shortcut icon" href="https://emtoast.github.io/media/website/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="https://emtoast.github.io/assets/css/style.css?v=1202972c0e7842ec4ed74e93f8977ef4"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"EMToast","logo":"https://emtoast.github.io/media/website/EMToast-Logo-RESIZE.png","url":"https://emtoast.github.io/"}</script><noscript><style>img[loading] {
+                    opacity: 1;
+                }</style></noscript></head><body class="search-template"><header class="header" id="js-header"><a href="https://emtoast.github.io/" class="logo"><img src="https://emtoast.github.io/media/website/EMToast-Logo-RESIZE.png" alt="EMToast" width="512" height="512"></a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://emtoast.github.io/about-disclaimer/" target="_self">About / Disclaimer</a></li><li><a href="https://emtoast.github.io/tags/weird-world-news/" target="_self">Absurd World News</a></li><li><a href="https://emtoast.github.io/tags/art-of-the-folked/" target="_self">Art of the Folked</a></li><li><a href="https://emtoast.github.io/tags/curious-ideas/" target="_self">Curious Ideas</a></li><li><a href="https://emtoast.github.io/tags/odd-products/" target="_self">Odd Products</a></li><li><a href="https://emtoast.github.io/tags/short_fiction/" target="_self">Short Fiction</a></li><li><a href="https://emtoast.github.io/yearly-timeline/" target="_self">Archive</a></li></ul></nav><div class="search"><div class="search__overlay js-search-overlay"><form action="https://emtoast.github.io/search.html" class="search__form"><input class="search__input" type="search" name="q" placeholder="search..." aria-label="search..." required></form></div><button class="search__btn js-search-btn" aria-label="Search"><svg role="presentation" focusable="false" height="18" width="18"><use xlink:href="https://emtoast.github.io/assets/svg/svg-map.svg#search"/></svg></button></div></header><main><div class="wrapper page page--search"><div class="hero"><h1>Search</h1></div><div class="post__inner"><form action="javascript:void(0);" class="search-page-form" onsubmit="return false;"><input type="search" id="live-search-input" placeholder="search..." class="search-page-input" required></form><div id="search-results"></div><script src="https://emtoast.github.io/media/plugins/staticFuzzySearch/fuse.js"></script><script>(async function () {
+          const searchInput = document.getElementById("live-search-input");
+          const resultsContainer = document.getElementById("search-results");
+          const paramName = "q";
+          const dataUrl = "search-index.json";
+
+          // Fuse options injected from plugin config
+          const fuseOptions = {
+            keys: ["title","excerpt","text","author","tags"],
+            isCaseSensitive: false,
+            includeScore: true,
+            includeMatches: true,
+            findAllMatches: false,
+            minMatchCharLength: 2,
+            shouldSort: true,
+            ignoreLocation: false,
+            ignoreDiacritics: false,
+            useExtendedSearch: false,
+            threshold: 0.6,
+            location: 0,
+            fieldNormWeight: 1,
+            ignoreFieldNorm: false,
+            distance: 100
+          };
+
+          // Helpers for highlighting
+          function highlightMatches(text, matches, key) {
+            if (!matches) return text;
+            const match = matches.find(m => m.key === key);
+            if (!match || !Array.isArray(match.indices)) return text;
+
+            let offset = 0;
+            let highlighted = text;
+
+            match.indices.forEach(([start, end]) => {
+              const realStart = start + offset;
+              const realEnd = end + offset + 1;
+
+              const original = highlighted.slice(realStart, realEnd);
+              const replacement = "<mark>" + original + "</mark>";
+
+              highlighted = highlighted.slice(0, realStart) + replacement + highlighted.slice(realEnd);
+
+              offset += "<mark></mark>".length;
+            });
+
+            return highlighted;
+          }
+
+          function renderResults(results) {
+            resultsContainer.innerHTML = "";
+
+            if (!results || results.length === 0) {
+              resultsContainer.innerHTML = "<p>No Results Found</p>";
+              return;
+            }
+
+            results.forEach(result => {
+              const item = result.item;
+              const title = highlightMatches(item.title || "", result.matches, "title");
+              const excerptKey = ["title","excerpt","text","author","tags"].includes('excerpt') ? 'excerpt' : (["title","excerpt","text","author","tags"].includes('text') ? 'text' : null);
+              const summary = excerptKey ? highlightMatches(item[excerptKey] || "", result.matches, excerptKey) : "";
+
+              const url = item.url || "#";
+
+              const resultHTML = `
+                <div class="search-result-item">
+                  <h5><a href="${url}">${title}</a></h5>
+                  <p>${summary}</p>
+                </div>
+              `;
+              resultsContainer.innerHTML += resultHTML;
+            });
+          }
+
+          function performSearch(term) {
+            if (!term || term.length < 2) {
+              resultsContainer.innerHTML = "";
+              return;
+            }
+            // update query param without reload
+            history.replaceState(null, "", "?q=" + encodeURIComponent(term));
+
+            const results = fuse.search(term);
+            renderResults(results);
+          }
+
+          // fetch data and initialize Fuse
+          let items = [];
+          try {
+            const resp = await fetch(dataUrl);
+            const json = await resp.json();
+            // when using feed.json, item array may be under json.items
+            items = Array.isArray(json) ? json : (Array.isArray(json.items) ? json.items : []);
+          } catch (e) {
+            resultsContainer.innerHTML = "<p>Failed to load search data.</p>";
+            console.error("Failed to load search data:", e);
+            return;
+          }
+
+          // If feed.json has different field names than generated index, try to normalize minimal fields
+          // The generated index is expected to have: url, id, title, excerpt/text, tags, author
+          // But feed.json items usually contain e.g. title, summary, content_html, tags, author, url
+          // We'll normalize feed.json items to the expected keys if needed.
+          const normalizedItems = items.map(it => {
+            // if it already looks like generated index (has title and (excerpt or text) and url), keep as is
+            const copy = Object.assign({}, it);
+
+            if (!copy.title && copy.title !== '') {
+              copy.title = it.title || it.name || "";
+            }
+
+            // feed.json uses 'summary' or 'content_html' -> map to excerpt/text fields if our keys expect them
+            if (["title","excerpt","text","author","tags"].includes('excerpt')) {
+              copy.excerpt = copy.excerpt || copy.summary || "";
+            }
+            if (["title","excerpt","text","author","tags"].includes('text')) {
+              copy.text = copy.text || copy.content_html || "";
+            }
+
+            if (["title","excerpt","text","author","tags"].includes('author')) {
+              // feed.json might have author as object or string
+              if (!copy.author) {
+                if (it.author && typeof it.author === 'object') copy.author = it.author.name || "";
+                else copy.author = it.author || "";
+              }
+            }
+
+            if (["title","excerpt","text","author","tags"].includes('tags')) {
+              if (!copy.tags) {
+                // feed.json tags may be an array of objects
+                if (Array.isArray(it.tags)) {
+                  copy.tags = it.tags.map(t => (typeof t === 'object' ? (t.name || t) : t));
+                } else {
+                  copy.tags = [];
+                }
+              }
+            }
+
+            return copy;
+          });
+
+          // initialize fuse
+          const fuse = new Fuse(normalizedItems, fuseOptions);
+
+          // Get URL query param
+          const params = new URLSearchParams(window.location.search);
+          const searchTermFromURL = params.get(paramName) || "";
+
+          // Live input
+          searchInput.addEventListener("input", (e) => {
+            const term = e.target.value.trim();
+            performSearch(term);
+          });
+
+          // If search term exists in URL, trigger search
+          if (searchTermFromURL) {
+            searchInput.value = searchTermFromURL;
+            performSearch(searchTermFromURL);
+          }
+        })();</script></div></div></main><footer class="footer"><div class="footer__copyright">Powered by Publii</div></footer><script>window.publiiThemeMenuConfig = {    
+      mobileMenuMode: 'sidebar',
+      animationSpeed: 300,
+      submenuWidth: 'auto',
+      doubleClickTime: 500,
+      mobileMenuExpandableSubmenus: true, 
+      relatedContainerForOverlayMenuSelector: '.navbar',
+   };</script><script defer="defer" src="https://emtoast.github.io/assets/js/scripts.min.js?v=1b09dc64eb6086ddc9720890661ff038"></script></body></html>

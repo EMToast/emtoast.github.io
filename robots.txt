@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://emtoast.github.io/sitemap.xml
