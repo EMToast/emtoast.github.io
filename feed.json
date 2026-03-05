@@ -11,20 +11,6 @@
     },
     "items": [
         {
-            "id": "https://emtoast.github.io/test-post-blank/",
-            "url": "https://emtoast.github.io/test-post-blank/",
-            "title": "test post blank",
-            "summary": "test blank post",
-            "content_html": "<p>test blank post</p>",
-            "author": {
-                "name": "EMToast Staff"
-            },
-            "tags": [
-            ],
-            "date_published": "2026-03-05T17:32:04-05:00",
-            "date_modified": "2026-03-05T17:32:04-05:00"
-        },
-        {
             "id": "https://emtoast.github.io/duncan-hines-sues-dunkin-heinz-co-alleging-brand-confusion-and-unfair-competition/",
             "url": "https://emtoast.github.io/duncan-hines-sues-dunkin-heinz-co-alleging-brand-confusion-and-unfair-competition/",
             "title": "Duncan Hines Sues Dunkin Heinz Co., Alleging Brand Confusion and Unfair Competition",
@@ -158,6 +144,21 @@
             ],
             "date_published": "2026-02-09T17:21:20-05:00",
             "date_modified": "2026-03-05T11:34:58-05:00"
+        },
+        {
+            "id": "https://emtoast.github.io/optimus-overeats/",
+            "url": "https://emtoast.github.io/optimus-overeats/",
+            "title": "Optimus Overeats",
+            "summary": "A lot of artists hate AI. I get it. But what artist is going to spend days and days drawing&hellip;",
+            "content_html": "<div class=\"gallery-wrapper\"><div class=\"gallery\" data-is-empty=\"false\" data-translation=\"Add images\" data-columns=\"3\">\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/001-2.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/001-2-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/002-2.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/002-2-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/003-2.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/003-2-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/004-2.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/004-2-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/Featured.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/Featured-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/OIG1.G5i20.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/OIG1.G5i20-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/OIG1.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/OIG1-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/OIG1gjhgjh.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/OIG1gjhgjh-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/OIG1vnvbnv.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/OIG1vnvbnv-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/OIG2.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/OIG2-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/OIG3.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/OIG3-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/OIG3fhff.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/OIG3fhff-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/OIG4dd.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/OIG4dd-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/OIGfghfghf1.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/OIGfghfghf1-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/OIGhjkhkj3.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/OIGhjkhkj3-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/OIGvnv1.jpg\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/OIGvnv1-thumbnail.jpg\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/Untitled.png\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/Untitled-thumbnail.png\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n<figure class=\"gallery__item\"><a href=\"https://emtoast.github.io/media/posts/928/gallery/Untitled5454.png\" data-size=\"1024x1024\"><img src=\"https://emtoast.github.io/media/posts/928/gallery/Untitled5454-thumbnail.png\" alt=\"\" width=\"768\" height=\"768\"></a></figure>\n</div></div>\n<p>A lot of artists hate AI.  I get it. But what artist is going to spend days and days drawing Optimus Prime overeating?  None that I know. The quality level of these is questionable, but flipping through them gave me a chuckle.   These are actually all screw ups from another idea I had called Galvatron Gulping Gavescon.  </p>",
+            "image": "https://emtoast.github.io/media/posts/928/Featured.jpg",
+            "author": {
+                "name": "EMToast Staff"
+            },
+            "tags": [
+            ],
+            "date_published": "2026-02-09T17:19:03-05:00",
+            "date_modified": "2026-03-05T10:09:11-05:00"
         }
     ]
 }
