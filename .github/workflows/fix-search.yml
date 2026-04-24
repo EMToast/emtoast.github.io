@@ -1,0 +1,19 @@
+name: Fix search index
+on:
+  push:
+    branches: [main]
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Strip placeholder from search index
+        run: |
+          sed -i 's|#PUBLII_RELATIVE_URL_BASE#||g' search-index.json
+          sed -i 's|http://localhost/emtoast||g' search-index.json
+      - name: Commit fixed file
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add search-index.json
+          git diff --cached --quiet || (git commit -m "Fix search index URLs" && git push)
