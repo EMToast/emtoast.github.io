@@ -1,13 +1,13 @@
-# This workflow deploys the site to Netlify twice a day.
+# This workflow deploys the site to Netlify 8 times a month.
 # It uses the Netlify CLI to push files directly to Netlify's CDN,
-# bypassing Netlify's build system entirely so 0 credits are used.
+# bypassing Netlify's build system entirely so 15 credits are used each time.
 # Netlify builds are set to "Stopped" in Netlify settings.
 # To manually deploy anytime, go to Actions tab and click "Run workflow".
 
 name: Scheduled Netlify Deploy
 on:
   schedule:
-    - cron: '0 0,12 * * *'
+    - cron: '0 0 1,5,8,12,15,19,22,26 * *'
   workflow_dispatch:
 
 jobs:
